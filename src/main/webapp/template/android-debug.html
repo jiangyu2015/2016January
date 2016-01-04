@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>安卓手机微信页面刷新</title>
+</head>
+<body>
+
+
+<style>
+    #refreshBtn {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 1000;
+    }
+</style>
+<button id="refreshBtn">刷新</button>
+<script>
+    $('#refreshBtn').click(function () {
+        location.reload(true);
+    });
+</script>
+
+
+</body>
+</html>
