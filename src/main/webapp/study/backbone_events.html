@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>backbone_events</title>
+    <script src="../res/js/jquery.js"></script>
+    <script src="../res/js/underscore.js"></script>
+    <script src="../res/js/backbone.js"></script>
+</head>
+<body>
+
+<script>
+    //    console.log(Backbone);
+    +function () {
+        var Model = Backbone.Model;
+        var View = Backbone.View;
+        var model = new Model();
+        var model1 = new Model();
+        var view = new View();
+
+        model.on('m', alert);
+        console.log(model);
+        view.listenTo(model, 'v', alert);
+        view.listenTo(model1, 'v', alert);
+        console.log(view);
+        view.stopListening(model);
+    }();
+</script>
+</body>
+</html>

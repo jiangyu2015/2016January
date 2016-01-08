@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js_object_create</title>
+</head>
+<body>
+
+<script>
+    var a = Object.create({
+        a: 2
+    }, {
+        b: {
+            configurable: false,
+            get: function () {
+                return this.a;
+            },
+            set: function () {
+                this.b = 3;
+            }
+        }
+    });
+    a.b = 3;
+    console.log(a.b);
+</script>
+</body>
+</html>
