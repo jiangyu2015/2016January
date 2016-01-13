@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>regx</title>
+</head>
+<body>
+<script>
+    var reg = /(?:abc)dx(x)/;
+    var result = reg.exec('aabcdxxxx');
+    console.log(result);
+    result = result.exec('aabcdxxxx');
+    console.log(result);
+</script>
+</body>
+</html>

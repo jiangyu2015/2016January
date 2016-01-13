@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+</head>
+<body>
+<canvas id="myCanvas" width="480" height="300" style="border: 1px solid #c3c3c3;">
+    Your browser does not support the canvas element.
+</canvas>
+<script src="../../script/jscex.jscexRequire.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var c = document.getElementById("myCanvas");
+    var cxt = c.getContext("2d");
+    var x = 150;
+    var y = 150;
+    var r = 100;
+    var functionToCompile = function () {
+        cxt.moveTo(x - r, y);
+        for (var i = x - r; i < x + r + 1; i++) {
+            $await(Jscex.Async.sleep(10));
+            var tempY = Math.pow(r * r - (x - i) * (x - i), 1 / 2);
+            cxt.lineTo(i, y + tempY);
+            cxt.stroke();
+        }
+        cxt.moveTo(x - r, y);
+        for (var i = x - r; i < x + r + 1; i++) {
+            $await(Jscex.Async.sleep(10));
+            var tempY = Math.pow(r * r - (x - i) * (x - i), 1 / 2);
+            cxt.lineTo(i, y - tempY);
+            cxt.stroke();
+        }
+
+    };
+    functionToCompile = function () {
+        $await(Jscex.Async.sleep(10));
+        console.log(1);
+    };
+
+    var afterCompileCode = Jscex.compile("async", functionToCompile);
+//    console.log(afterCompileCode);
+    var drawAsync = eval(afterCompileCode);
+    drawAsync().start();
+</script>
+<script>
+    +function () {
+        var a = function () {
+            var builder = Jscex.builders["async"];
+            return builder.Start(this,
+                    builder.Delay(function () {
+                        cxt.moveTo(x - r, y);
+                        return builder.Combine(
+                                builder.Delay(function () {
+                                    var i = x - r;
+                                    return builder.Loop(function () {
+                                                return i < ((x + r) + 1);
+                                            }, function () {
+                                                i++;
+                                            }, builder.Delay(function () {
+                                                return builder.Bind(Jscex.Async.sleep(10), function () {
+                                                    var tempY = Math.pow((r * r) - ((x - i) * (x - i)), 1 / 2);
+                                                    cxt.lineTo(i, y + tempY);
+                                                    cxt.stroke();
+                                                    return builder.Normal();
+                                                });
+                                            }),
+                                            false
+                                    );
+                                }),
+                                builder.Delay(function () {
+                                    cxt.moveTo(x - r, y);
+                                    var i = x - r;
+                                    return builder.Loop(
+                                            function () {
+                                                return i < ((x + r) + 1);
+                                            },
+                                            function () {
+                                                i++;
+                                            },
+                                            builder.Delay(function () {
+                                                return builder.Bind(Jscex.Async.sleep(10), function () {
+                                                    var tempY = Math.pow((r * r) - ((x - i) * (x - i)), 1 / 2);
+                                                    cxt.lineTo(i, y - tempY);
+                                                    cxt.stroke();
+                                                    return builder.Normal();
+                                                });
+                                            }),
+                                            false
+                                    );
+                                })
+                        );
+                    })
+            );
+        }
+    }();
+</script>
+
+<script>
+    +function () {
+        // Start
+        var $$_builder_$$_0 = Jscex.builders["async"];
+        return $$_builder_$$_0.Start(this,
+                $$_builder_$$_0.Delay(function () {
+                    return $$_builder_$$_0.Bind(Jscex.Async.sleep(10), function () {
+                        console.log(1);
+                        return $$_builder_$$_0.Normal();
+                    });
+                })
+        );
+        // End
+
+    }();
+</script>
+</body>
+</html>
