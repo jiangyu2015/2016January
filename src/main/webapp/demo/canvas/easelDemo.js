@@ -15,21 +15,39 @@
 
     var stage = new Stage('demo');
     var container = new Container();
-    container.x = 100;
-    container.y = 100;
+    container.x = 200;
+    container.y = 200;
 
-    var bigRadius = 50, smallRadius = 10;
+    //var border = new Shape();
+    //border.graphics.setStrokeStyle(1, 'round','round').beginStroke('#aaa').drawRect(0, 0, 100, 100);
+    //container.addChild(border);
+
+    var eightCircles = [];
+    var bigRadius = 100, smallRadius = 20;
     for (var i = 0; i < 8; i++) {
         var circle = new Shape();
-        var x = bigRadius * cos(PI2 * i / 8);
-        var y = bigRadius * sin(PI2 * i / 8);
-        circle.graphics.setStrokeStyle(1, 'round', 'round').beginStroke('#aaa').drawCircle(x, y, smallRadius);
+        eightCircles.push(circle);
         container.addChild(circle);
     }
     stage.addChild(container);
 
+
+    var currentBigRadius = 0;
     Ticker.addEventListener('tick', function (event) {
-        container.rotation++;
+        currentBigRadius += 1;
+        if (currentBigRadius > bigRadius) {
+            return;
+        }
+        var rate = currentBigRadius / bigRadius;
+
+        for (var i = 0; i < 8; i++) {
+            var circle = eightCircles[i];
+            var x = currentBigRadius * cos(PI2 * i / 8);
+            var y = currentBigRadius * sin(PI2 * i / 8);
+            circle.graphics.clear();
+            circle.graphics.setStrokeStyle(1, 'round', 'round').beginStroke('#aaa').drawCircle(x, y, rate * smallRadius);
+        }
+        container.rotation = rate * 360;
         stage.update();
     });
 }(window);
