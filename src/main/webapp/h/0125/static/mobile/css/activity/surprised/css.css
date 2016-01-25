@@ -1,0 +1,4 @@
+.sur_m_reg{position:relative;}
+.sur_m_reg>a{position:absolute;width:40%;height:40px;line-height:40px;top:25%;background:#7426f5;color:#fff;border-radius:5px;text-align:center;}
+.sur_reg{left:8%;}
+.sur_friend{right:8%;}

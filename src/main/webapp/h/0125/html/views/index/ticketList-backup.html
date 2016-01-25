@@ -1,0 +1,50 @@
+﻿<html>
+<head>
+    <title>票据列表</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <link type="image/x-icon" href="../../../static/images/favicon.ico" rel="shortcut icon">
+    <link href="../../../static/styles/normalize.css" type="text/css" rel="stylesheet"/>
+    <link href="../../../static/styles/jquery.bxslider.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="../../../static/js/slideList/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../../static/js/slideList/jquery.bxslider.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+<div class="TL-progress">
+    <h2>第一排的图片</h2>
+    <div id="circle-progress1" class="progress">
+    </div>
+    <h2>第二排的图片</h2>
+    <div id="circle-progress2" class="progress-hover">
+    </div>
+</div><!-- 圆形进度条 //end-->
+
+
+<script src="../../../static/js/excanvas.js"></script>
+<script src="../../../static/js/radialIndicator.js"></script>
+<script>
+    // 	 默认显示  显示第一个，关闭第二个
+    $('.progress').radialIndicator({
+        barColor: '#4f6dc9',
+        percentage: true,
+        radius: 70,
+        barWidth: 10,
+        initValue: 9,//第一排的图片，数字80代表80%
+        roundCorner: true,
+        percentage: true
+    });
+    //    hover 显示第二个，关闭第一个
+    $('.progress-hover').radialIndicator({
+        barColor: '#ffffff',
+        barBgColor: '#708ce0',
+        percentage: true,
+        radius: 70,
+        barWidth: 10,
+        initValue: 9,//第二排的图片，数字80代表80%
+        roundCorner: true,
+        percentage: true
+    });
+</script>
+</body>
+</html>

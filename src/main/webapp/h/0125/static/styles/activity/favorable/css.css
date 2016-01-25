@@ -1,0 +1,8 @@
+.ac_index{min-width:1200px;background:#cd292a;}
+.ac_img01{width:1200px;height:484px;background:url("images/img01.png") no-repeat 0 0;}
+.ac_img02{width:1200px;height:322px;background:url("images/img02.png") no-repeat 0 0;}
+.ac_img03{width:1200px;height:289px;background:url("images/img03.png") no-repeat 0 0;}
+.justNow{display:block;width:278px;height:58px;margin:10px auto;background:url("images/promptly.png") no-repeat 0 0;}
+.ac_index dl{width:480px;margin:20px auto 0;padding-bottom:60px;font-size:18px;line-height:28px;color:#fff;}
+.ac_index dt{color:#ffd525;padding-left:20px;}
+.ac_index dd{padding-left:20px;background:url("images/dot_white.png") no-repeat 0 center;}
