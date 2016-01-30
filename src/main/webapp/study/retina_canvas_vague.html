@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <title>Title</title>
+    <script src="../res/js/jquery.js"></script>
+</head>
+<body>
+<div id="debug"></div>
+
+<script>
+    var PIXEL_RATIO = (function () {
+        var ctx = document.createElement("canvas").getContext("2d"),
+                dpr = window.devicePixelRatio || 1,
+                bsr = ctx.msBackingStorePixelRatio ||
+                        ctx.webkitBackingStorePixelRatio ||
+                        ctx.mozBackingStorePixelRatio ||
+                        ctx.oBackingStorePixelRatio ||
+                        ctx.backingStorePixelRatio || 1;
+        return dpr / bsr;
+    }());
+    $('#debug').append(" PR=" + PIXEL_RATIO);
+    var ctx = document.createElement("canvas").getContext("2d");
+    $('#debug').append(" msr=" + ctx.msBackingStorePixelRatio);
+</script>
+</body>
+</html>
